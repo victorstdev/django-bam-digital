@@ -1,0 +1,33 @@
+<!-- templates/atendimentos/lista_medicos.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Lista de Médicos</h2>
+    <div class="row">
+        <div class="list-group list-group-horizontal">
+            <a class="list-group-item" href="{% url 'adicionar_medico' %}">Adicionar Médico</a>
+            <a class="list-group-item" href="{% url 'adicionar_medicos_csv' %}">Adicionar Médico via CSV</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <td scope='col'>Nome</td>
+                <td scope='col'>Detalhes</td>
+                <td scope='col'>Editar</td>
+                <td scope='col'>Excluir</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medico in medicos %}
+            <tr>
+                <td scope="row">{{ medico.nome }}</td>
+                <td><a href="{% url 'detalhes_medico' medico.pk %}"><i class="bi bi-info-circle-fill btn-info"></i></a></td>
+                <td><a href="{% url 'editar_medico' medico.pk %}"><i class="bi bi-pencil-fill btn-primary"></i></a></td>
+                <td><a href="{% url 'excluir_medico' medico.pk %}"><i class="bi bi-trash-fill btn-danger"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

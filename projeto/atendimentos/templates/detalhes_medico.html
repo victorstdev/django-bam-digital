@@ -1,0 +1,12 @@
+<!-- templates/atendimentos/detalhes_medico.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Detalhes do Médico</h2>
+    
+    <p><strong>Nome:</strong> {{ medico.nome }}</p>
+    
+    <a href="{% url 'editar_medico' medico.pk %}">Editar</a>
+    <a href="{% url 'excluir_medico' medico.pk %}">Excluir</a>
+    <a href="{% url 'lista_medicos' %}">Voltar para a Lista de Médicos</a>
+{% endblock %}

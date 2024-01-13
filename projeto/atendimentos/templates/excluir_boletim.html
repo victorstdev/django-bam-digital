@@ -1,0 +1,15 @@
+<!-- templates/atendimentos/excluir_boletim.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Confirmar Exclusão</h2>
+    
+    <p>Tem certeza de que deseja excluir o Boletim "{{ boletim.id_boletim }}"?</p>
+    
+    <form method="post" action="{% url 'excluir_boletim' boletim.id %}">
+        {% csrf_token %}
+        <button type="submit">Sim, Excluir</button>
+    </form>
+
+    <a href="{% url 'lista_boletims' %}">Cancelar e Voltar para a Lista de Boletins</a>
+{% endblock %}

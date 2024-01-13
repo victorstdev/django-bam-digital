@@ -1,0 +1,14 @@
+<!-- templates/atendimentos/adicionar_medicos_csv.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Adicionar Médicos via CSV</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Adicionar Médicos</button>
+    </form>
+
+    <a href="{% url 'lista_medicos' %}">Voltar para a Lista de Médicos</a>
+{% endblock %}

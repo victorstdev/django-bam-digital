@@ -1,0 +1,14 @@
+<!-- templates/atendimentos/form_medico.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Editar Médico</h2>
+    
+    <form method="post" action="{% url 'editar_medico' medico.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar Alterações</button>
+    </form>
+
+    <a href="{% url 'lista_medicos' %}">Voltar para a Lista de Médicos</a>
+{% endblock %}

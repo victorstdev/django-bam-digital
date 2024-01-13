@@ -1,0 +1,12 @@
+<!-- templates/atendimentos/pagina_inicial.html -->
+{% extends 'base.html' %}
+{% block title %}Página Inicial{% endblock title %}
+{% block content %}
+    <h2>Página Inicial</h2>
+    
+    <p>Total de Médicos Cadastrados: {{ total_medicos }}</p>
+    <p>Total de Boletins Realizados: {{ total_boletins }}</p>
+
+    <p><a href="{% url 'lista_medicos' %}">Ver Médicos</a></p>
+    <p><a href="{% url 'lista_boletins' %}">Ver Boletins</a></p>
+{% endblock %}

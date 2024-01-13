@@ -1,0 +1,15 @@
+<!-- templates/atendimentos/excluir_medico.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Confirmar Exclusão</h2>
+    
+    <p>Tem certeza de que deseja excluir o médico "{{ medico.nome }}"?</p>
+    
+    <form method="post" action="{% url 'excluir_medico' medico.id %}">
+        {% csrf_token %}
+        <button type="submit">Sim, Excluir</button>
+    </form>
+
+    <a href="{% url 'lista_medicos' %}">Cancelar e Voltar para a Lista de Médicos</a>
+{% endblock %}

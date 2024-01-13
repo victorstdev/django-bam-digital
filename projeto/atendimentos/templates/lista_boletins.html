@@ -1,0 +1,18 @@
+<!-- templates/atendimentos/lista_boletims.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Lista de Boletins</h2>
+    <ul>
+        {% for boletim in boletins %}
+            <li>
+                {{ boletim.nome }}
+                <a href="{% url 'detalhes_boletim' boletim.pk %}">Detalhes</a>
+                <a href="{% url 'editar_boletim' boletim.pk %}">Editar</a>
+                <a href="{% url 'excluir_boletim' boletim.pk %}">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'adicionar_boletim' %}">Adicionar Boletim</a>
+{% endblock %}

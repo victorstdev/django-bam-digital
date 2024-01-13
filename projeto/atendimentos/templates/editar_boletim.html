@@ -1,0 +1,14 @@
+<!-- templates/atendimentos/form_boletim.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Editar Boletim</h2>
+    
+    <form method="post" action="{% url 'editar_boletim' boletim.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar Alterações</button>
+    </form>
+
+    <a href="{% url 'lista_boletins' %}">Voltar para a Lista de Boletins</a>
+{% endblock %}
